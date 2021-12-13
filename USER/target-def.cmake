@@ -1,8 +1,7 @@
 # Target-specific flags
 set(MCU_ARCH ARMCM4)
-set(MCU_FAMILY STM32F401xC)
+set(MCU_FAMILY STM32F401xx)
 set(MCU_NAME STM32F401CC)
-set(MCU_TYPE STM32F40_41xxx)
 
 set(CPU "-mcpu=cortex-m4")
 set(FPU "-mfpu=fpv4-sp-d16")
