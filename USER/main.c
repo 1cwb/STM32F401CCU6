@@ -24,8 +24,10 @@ uart_init(115200);
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;
   GPIO_Init(GPIOC, &GPIO_InitStructure);
-
+  RCC_ClocksTypeDef rcc;
+  RCC_GetClocksFreq(&rcc);
   while(1){
+    USART_SendData(USART1, rcc.SYSCLK_Frequency/1000000);
 		GPIO_SetBits(GPIOC,GPIO_Pin_13);
 		Delay(0x7FFFF);
 		GPIO_ResetBits(GPIOC,GPIO_Pin_13);
